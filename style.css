@@ -28,7 +28,7 @@ main {
 }
 .carousel {
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 90%;
   height: 80%;
   background-color: khaki;
   position: absolute;
@@ -41,7 +41,7 @@ main {
   height: 50px;
   transform: translate(-50%, -50%);
   position: absolute;
-  left: 5%;
+  left: 2.5%;
   top: 50%;
   color: white;
 }
@@ -50,10 +50,10 @@ main {
   transform: scale(1.5);
 }
 #right-arrow {
-  left: 95%;
+  left: 97.5%;
 }
 .card {
-  width: 30%;
+  width: 28%;
   height: 80%;
   position: absolute;
   background-color: violet;
@@ -63,10 +63,10 @@ main {
   transform: scale(0.8);
 }
 .first {
-  left: 2%;
+  left: 4%;
 }
 .second {
-  left: 35%;
+  left: 36%;
 }
 .third {
   left: 68%;
