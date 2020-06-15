@@ -28,13 +28,13 @@ main {
 }
 .carousel {
   transform: translate(-50%, -50%);
-  content: "";
   width: 80%;
   height: 80%;
   background-color: khaki;
   position: absolute;
   top: 50%;
   left: 50%;
+  overflow: hidden;
 }
 .nav-btn {
   width: 50px;
@@ -51,4 +51,32 @@ main {
 }
 #right-arrow {
   left: 95%;
+}
+.card {
+  width: 30%;
+  height: 80%;
+  position: absolute;
+  background-color: violet;
+  top: 10%;
+  border-radius: 1rem;
+  text-align: center;
+  transform: scale(0.8);
+}
+.first {
+  left: 2%;
+}
+.second {
+  left: 35%;
+}
+.third {
+  left: 68%;
+}
+.prev-deck {
+  left: -50%;
+}
+.next-deck {
+  left: 105%;
+}
+.focus {
+  transform: scale(1.2);
 }
