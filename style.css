@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Dancing Script", cursive;
+  background-color: #313131;
+}
+header {
+  font-family: "Pacifico", cursive;
+}
