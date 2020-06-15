@@ -3,14 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./icons/gallery_icon.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./style.css" />
     <title>Miniatures Gallery</title>
   </head>
   <body>
+    <header>
+      <h1>Miniatures Gallery</h1>
+    </header>
+    <main>
+      <div class="carousel"></div>
+      <button class="nav-btn" id="left-arrow">
+        <i class="fas fa-chevron-circle-left"></i>
+      </button>
+      <button class="nav-btn" id="right-arrow">
+        <i class="fas fa-chevron-circle-right"></i>
+      </button>
+    </main>
     <script src="./app.js"></script>
   </body>
 </html>

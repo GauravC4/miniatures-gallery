@@ -7,6 +7,48 @@ body {
   font-family: "Dancing Script", cursive;
   background-color: #313131;
 }
+button {
+  border: none;
+  font-size: 2rem;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
 header {
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "Pacifico", cursive;
+  background-color: white;
+}
+main {
+  min-height: 90vh;
+  position: relative;
+}
+.carousel {
+  transform: translate(-50%, -50%);
+  content: "";
+  width: 80%;
+  height: 80%;
+  background-color: khaki;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.nav-btn {
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  color: white;
+}
+.nav-btn i {
+  pointer-events: none;
+  transform: scale(1.5);
+}
+#right-arrow {
+  left: 95%;
 }
