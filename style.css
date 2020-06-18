@@ -61,6 +61,7 @@ main {
   border-radius: 1rem;
   text-align: center;
   transform: scale(0.8);
+  transition: all 1s ease-in-out;
 }
 .first {
   left: 4%;
@@ -72,7 +73,7 @@ main {
   left: 68%;
 }
 .prev-deck {
-  left: -50%;
+  left: -30%;
 }
 .next-deck {
   left: 105%;
