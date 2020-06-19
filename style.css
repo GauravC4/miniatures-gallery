@@ -32,7 +32,7 @@ main {
   height: 80%;
   background-color: khaki;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   overflow: hidden;
 }
@@ -42,7 +42,7 @@ main {
   transform: translate(-50%, -50%);
   position: absolute;
   left: 2.5%;
-  top: 50%;
+  top: 45%;
   color: white;
 }
 .nav-btn i {
@@ -61,23 +61,49 @@ main {
   border-radius: 1rem;
   text-align: center;
   transform: scale(0.8);
-  transition: all 1s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 .first {
   left: 4%;
+  opacity: 1;
 }
 .second {
   left: 36%;
+  opacity: 1;
 }
 .third {
   left: 68%;
+  opacity: 1;
 }
 .prev-deck {
   left: -30%;
+  opacity: 0;
 }
 .next-deck {
   left: 105%;
+  opacity: 0;
 }
 .focus {
   transform: scale(1.2);
+}
+.nav-dots-container {
+  min-height: 5%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  display: flex;
+}
+.nav-dot {
+  flex: 1;
+  width: 2vh;
+  height: 2vh;
+  border-radius: 50%;
+  background-color: #0dff00;
+  margin: 0 2.5vh;
+  cursor: pointer;
+  transition: all 0.6s ease-in-out;
+}
+.nav-dot-focus {
+  transform: scale(1.8);
 }

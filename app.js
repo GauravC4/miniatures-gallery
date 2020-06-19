@@ -1,11 +1,13 @@
 const carousel = document.querySelector(".carousel");
 var projectCards = document.querySelectorAll(".card");
+const navDotsContainer = document.querySelector(".nav-dots-container");
+var navDots = document.querySelectorAll(".nav-dot");
 const leftBtn = document.querySelector("#left-arrow");
 const rightBtn = document.querySelector("#right-arrow");
 
 var minis;
 const positionClasses = ["prev-deck", "first", "second", "third", "next-deck"];
-var currentWindow = { left: -1, right: 1 };
+var currentWindow = { left: 0, right: 2 };
 
 leftBtn.addEventListener("click", scroll);
 rightBtn.addEventListener("click", scroll);
@@ -19,31 +21,57 @@ async function loadProjects() {
     .then((response) => response.json())
     .catch((error) => console.log(error));
   minis = json.minis;
+
   // dummy
-  carousel.appendChild(createDomCard(null, 0, 0));
+  carousel.appendChild(createDomCard(null, 0, true));
+  navDotsContainer.appendChild(createNavDotDom(0, true));
+
   minis.forEach((project, index) => {
     carousel.appendChild(createDomCard(project, index + 1));
+    navDotsContainer.appendChild(createNavDotDom(index + 1));
   });
+
   // dummy
-  carousel.appendChild(createDomCard(null, minis.length, 0));
+  carousel.appendChild(createDomCard(null, minis.length, true));
+  navDotsContainer.appendChild(createNavDotDom(minis.length, true));
+
   projectCards = document.querySelectorAll(".card");
+  navDots = document.querySelectorAll(".nav-dot");
 }
 
-function createDomCard(project, index, opacity) {
+function createDomCard(project, index, hidden) {
   var div = document.createElement("div");
-  if (opacity === 0) div.style.setProperty("opacity", 0, "important");
+
+  if (hidden) div.style.setProperty("opacity", 0, "important");
   div.classList.add("card");
-  if (project) div.innerHTML = project.title;
+
+  // add project info
+  if (project) {
+    div.innerHTML = project.title;
+  }
   // first project must have second pos hence offset by +1
   if (index + 1 < positionClasses.length)
     div.classList.add(positionClasses[index + 1]);
   else div.classList.add("next-deck");
+
   if (index === 1) div.classList.add("focus");
   return div;
 }
 
-function scroll($event) {
-  let offset = $event.target.id === "left-arrow" ? -1 : 1;
+function createNavDotDom(index, hidden) {
+  let div = document.createElement("div");
+  if (hidden) div.style.setProperty("visibility", "hidden", "important");
+  div.classList.add("nav-dot");
+  if (index === 1) div.classList.add("nav-dot-focus");
+  if (!hidden) {
+    div.dataset.index = index;
+    div.addEventListener("click", navigate);
+  }
+  return div;
+}
+
+function scroll($event, dir) {
+  let offset = dir || ($event.target.id === "left-arrow" ? -1 : 1);
   if (
     currentWindow.left + offset <= -1 ||
     currentWindow.right + offset >= projectCards.length
@@ -53,6 +81,7 @@ function scroll($event) {
   currentWindow.right = currentWindow.right + offset;
   updateFocus(currentWindow, offset);
   moveCard(currentWindow);
+  moveNavDot(currentWindow);
 }
 
 function updateFocus(currentWindow, offset) {
@@ -74,5 +103,25 @@ function moveCard(currentWindow) {
       projectCards[i].classList.add(positionClasses[j]);
     }
     j++;
+  }
+}
+
+function moveNavDot(currentWindow) {
+  for (let i = currentWindow.left; i <= currentWindow.right; i++) {
+    navDots[i].classList.remove("nav-dot-focus");
+  }
+  navDots[(currentWindow.left + currentWindow.right) / 2].classList.add(
+    "nav-dot-focus"
+  );
+}
+
+function navigate($event) {
+  let targetPos = parseInt($event.target.dataset.index);
+  let currentPos = (currentWindow.left + currentWindow.right) / 2;
+  if (targetPos == currentPos) return;
+
+  while (currentPos != targetPos) {
+    scroll(null, targetPos > currentPos ? 1 : -1);
+    currentPos = (currentWindow.left + currentWindow.right) / 2;
   }
 }
