@@ -1,9 +1,24 @@
 {
   "minis": [
-    { "title": "project 0" },
-    { "title": "project 1" },
-    { "title": "project 2" },
-    { "title": "project 3" },
-    { "title": "project 4" }
+    {
+      "title": "Scroll Anime",
+      "desc": "SVG scroll animation using GSAP.",
+      "img": "imgs/scroll-anime.png"
+    },
+    {
+      "title": "Fill Preloader",
+      "desc": "CSS preloader with liquid fill effect.",
+      "img": "imgs/fill-preloader.png"
+    },
+    {
+      "title": "Text Anime",
+      "desc": "SVG text animation for landing page.",
+      "img": "imgs/svg-text-anime.png"
+    },
+    {
+      "title": "TODO List",
+      "desc": "A fancy todo list.",
+      "img": "imgs/todo.png"
+    }
   ]
 }

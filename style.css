@@ -4,8 +4,11 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Dancing Script", cursive;
-  background-color: #313131;
+  --background: linear-gradient(to bottom, #272727, #0f0f0f);
+  --header-background: #191919;
+  font-family: "Poppins", sans-serif;
+  background: var(--background);
+  color: #76b900;
 }
 button {
   border: none;
@@ -14,13 +17,17 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+p {
+  font-weight: 300;
+}
 header {
   min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Pacifico", cursive;
-  background-color: white;
+  font-family: "MuseoModerno", cursive;
+  background-color: var(--header-background);
+  box-shadow: 0 1px 5px #76b900;
 }
 main {
   min-height: 90vh;
@@ -30,7 +37,6 @@ main {
   transform: translate(-50%, -50%);
   width: 90%;
   height: 80%;
-  background-color: khaki;
   position: absolute;
   top: 45%;
   left: 50%;
@@ -43,12 +49,16 @@ main {
   position: absolute;
   left: 2.5%;
   top: 45%;
-  color: white;
+  color: #76b900;
   transition: all 0.3s ease-in-out;
 }
 .nav-btn i {
   pointer-events: none;
   transform: scale(1.5);
+}
+.nav-btn:hover {
+  color: #95eb00;
+  box-shadow: 0 0 10px #95eb00, inset 0 0 10px #95eb00;
 }
 #right-arrow {
   left: 97.5%;
@@ -57,12 +67,41 @@ main {
   width: 28%;
   height: 80%;
   position: absolute;
-  background-color: violet;
+  background-color: var(--header-background);
   top: 10%;
   border-radius: 1rem;
   text-align: center;
   transform: scale(0.8);
   transition: all 0.6s ease-in-out;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all 0.8s ease-in-out;
+}
+.card-head {
+  width: 100%;
+  height: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0 0 25% 25%;
+}
+.card-body {
+  width: 100%;
+  height: 30%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .first {
   left: 4%;
@@ -87,6 +126,9 @@ main {
 .focus {
   transform: scale(1.2);
 }
+.focus.card::before {
+  background: transparent;
+}
 .nav-dots-container {
   min-height: 5%;
   transform: translate(-50%, -50%);
@@ -97,14 +139,16 @@ main {
 }
 .nav-dot {
   flex: 1;
-  width: 2vh;
-  height: 2vh;
+  width: 1.7vh;
+  height: 1.7vh;
   border-radius: 50%;
-  background-color: #0dff00;
+  background-color: #76b900;
   margin: 0 2.5vh;
   cursor: pointer;
   transition: all 0.6s ease-in-out;
 }
 .nav-dot-focus {
   transform: scale(1.8);
+  background-color: #95eb00;
+  box-shadow: 0 0 10px #95eb00;
 }

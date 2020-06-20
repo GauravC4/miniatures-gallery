@@ -48,7 +48,26 @@ function createDomCard(project, index, hidden) {
 
   // add project info
   if (project) {
-    div.innerHTML = project.title;
+    let cardHead = document.createElement("div");
+    cardHead.classList.add("card-head");
+    cardHead.style.backgroundImage = `url('${project.img}')`;
+
+    let cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+
+    let projectTitle = document.createElement("h2");
+    projectTitle.classList.add("project-title");
+    projectTitle.innerHTML = project.title;
+
+    let projectDescription = document.createElement("p");
+    projectDescription.classList.add("project-description");
+    projectDescription.innerHTML = project.desc;
+
+    cardBody.appendChild(projectTitle);
+    cardBody.appendChild(projectDescription);
+
+    div.appendChild(cardHead);
+    div.appendChild(cardBody);
   }
   // first project must have second pos hence offset by +1
   if (index + 1 < positionClasses.length)
