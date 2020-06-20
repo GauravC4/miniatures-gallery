@@ -3,25 +3,25 @@
     {
       "title": "Scroll Anime",
       "desc": "SVG scroll animation using GSAP.",
-      "img": "./imgs/scroll-anime.png",
+      "img": "./imgs/scroll-anime.PNG",
       "url": "https://gauravc4.github.io/miniatures-scroll-animation/"
     },
     {
       "title": "Fill Preloader",
       "desc": "CSS preloader with liquid fill effect.",
-      "img": "./imgs/fill-preloader.png",
+      "img": "./imgs/fill-preloader.PNG",
       "url": "https://gauravc4.github.io/miniatures-fill-preloader/"
     },
     {
       "title": "Text Anime",
       "desc": "SVG text animation for landing page.",
-      "img": "./imgs/svg-text-anime.png",
+      "img": "./imgs/svg-text-anime.PNG",
       "url": "https://gauravc4.github.io/miniatures-svg-text-animation/"
     },
     {
       "title": "TODO List",
       "desc": "A fancy todo list.",
-      "img": "./imgs/todo.png",
+      "img": "./imgs/todo.PNG",
       "url": "https://gauravc4.github.io/Todo/"
     }
   ]
