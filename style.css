@@ -20,6 +20,11 @@ button {
 p {
   font-weight: 300;
 }
+a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
 header {
   min-height: 10vh;
   display: flex;
@@ -75,7 +80,10 @@ main {
   transition: all 0.6s ease-in-out;
   overflow: hidden;
 }
-.card::before {
+.layover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   content: "";
   width: 100%;
   height: 100%;
@@ -85,7 +93,29 @@ main {
   left: 0;
   background: rgba(0, 0, 0, 0.6);
   transition: all 0.8s ease-in-out;
+  pointer-events: none;
 }
+.layover-content {
+  width: 55%;
+  height: 10%;
+  background-color: #76b900;
+  border-radius: 0.5rem;
+  color: var(--header-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+}
+.card:hover .layover {
+  /* background: rgba(118, 185, 0, 0.5); */
+  background: rgba(0, 0, 0, 0.6);
+  transition-duration: 0.4s;
+}
+.card:hover.focus .layover-content {
+  opacity: 1;
+}
+
 .card-head {
   width: 100%;
   height: 70%;
@@ -125,9 +155,12 @@ main {
 }
 .focus {
   transform: scale(1.2);
+  pointer-events: all;
+  box-shadow: 0 1px 3px rgba(118, 185, 0, 1);
 }
-.focus.card::before {
+.focus .layover {
   background: transparent;
+  pointer-events: all;
 }
 .nav-dots-container {
   min-height: 5%;

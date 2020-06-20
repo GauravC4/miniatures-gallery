@@ -66,8 +66,19 @@ function createDomCard(project, index, hidden) {
     cardBody.appendChild(projectTitle);
     cardBody.appendChild(projectDescription);
 
+    let layover = document.createElement("a");
+    layover.setAttribute("href", project.url);
+    layover.setAttribute("target", "_blank");
+    layover.classList.add("layover");
+
+    let layoverContent = document.createElement("div");
+    layoverContent.classList.add("layover-content");
+    layoverContent.innerHTML = "click for a LIVE DEMO !";
+    layover.appendChild(layoverContent);
+
     div.appendChild(cardHead);
     div.appendChild(cardBody);
+    div.appendChild(layover);
   }
   // first project must have second pos hence offset by +1
   if (index + 1 < positionClasses.length)
