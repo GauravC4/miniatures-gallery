@@ -44,6 +44,7 @@ main {
   left: 2.5%;
   top: 45%;
   color: white;
+  transition: all 0.3s ease-in-out;
 }
 .nav-btn i {
   pointer-events: none;

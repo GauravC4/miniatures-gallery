@@ -14,6 +14,7 @@ rightBtn.addEventListener("click", scroll);
 
 (function init() {
   loadProjects();
+  leftBtn.style.visibility = "hidden";
 })();
 
 async function loadProjects() {
@@ -82,6 +83,7 @@ function scroll($event, dir) {
   updateFocus(currentWindow, offset);
   moveCard(currentWindow);
   moveNavDot(currentWindow);
+  toggleDirectionBtn(currentWindow);
 }
 
 function updateFocus(currentWindow, offset) {
@@ -113,6 +115,20 @@ function moveNavDot(currentWindow) {
   navDots[(currentWindow.left + currentWindow.right) / 2].classList.add(
     "nav-dot-focus"
   );
+}
+
+function toggleDirectionBtn(currentWindow) {
+  if (currentWindow.left <= 0) {
+    leftBtn.style.visibility = "hidden";
+  } else {
+    leftBtn.style.visibility = "visible";
+  }
+
+  if (currentWindow.right >= projectCards.length - 1) {
+    rightBtn.style.visibility = "hidden";
+  } else {
+    rightBtn.style.visibility = "visible";
+  }
 }
 
 function navigate($event) {
